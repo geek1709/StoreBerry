@@ -6,7 +6,7 @@ from .models import UserTienda
 
 class Alta(View):
 	def get(self,request):
-		template_name = 'registration/altaTienda.html'
+		template_name = 'registration/altaUsuario.html'
 		form = RegistrationForm
 		context = {
 		'form':form,
