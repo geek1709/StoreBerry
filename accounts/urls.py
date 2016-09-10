@@ -4,5 +4,5 @@ from django.contrib.auth import views as djangoViews
 
 
 urlpatterns = [
-	url(r'^alta/$', views.Alta.as_view(), name="alta"),
+	url(r'^altausuario/$', views.Alta.as_view(), name="alta"),
 ]
