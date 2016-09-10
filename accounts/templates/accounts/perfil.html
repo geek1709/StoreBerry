@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<h1>Bienvenido a tu perfil!</h1>
+
+{%if request.user.is_authenticated%}
+	<h3>Hola, {{request.user.first_name}}</h3>
+	
+	<h4>Datos Personales</h4>
+	<p>E-mail: {{request.user.email}}</p>
+	
+
+{%else%}
+<h2>Aún no has iniciado Sesión</h2>
+{%endif%}
+
+
+{%endblock content%}

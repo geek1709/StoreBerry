@@ -5,4 +5,5 @@ from django.contrib.auth import views as djangoViews
 
 urlpatterns = [
 	url(r'^altausuario/$', views.Alta.as_view(), name="alta"),
+	url(r'^perfil/$', views.Perfil.as_view(), name="perfil"),
 ]
