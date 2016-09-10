@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import UserComprador,UserTienda
 
-# Register your models here.
+admin.site.register(UserTienda)
+admin.site.register(UserComprador)
