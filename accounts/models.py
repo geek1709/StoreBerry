@@ -8,14 +8,10 @@ class UserTienda(models.Model):
 	def __str__(self):
 		return 'esta tienda le pertenece a {}'.format(self.user)
 
-class UserComprador(models.Model):
-	GENEROS = (
-		('Hombre','Hombre'),
-		('Mujer', 'Mujer'),
-		)
-	fecha_nacimiento = models.DateField(null=True,blank=True)
-	sexo = models.CharField(max_length=140,choices=GENEROS, default="Mujer")
+class UsersNormal(models.Model):
 	user = models.OneToOneField(User)
+	nombre = models.CharField(max_length=140)
+	email = models.CharField(max_length=140)
 
 	def __str__(self):
 		return 'este perfil le pertenece a {}'.format(self.user)

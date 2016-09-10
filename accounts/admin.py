@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserComprador,UserTienda
+from .models import UsersNormal,UserTienda
 
 admin.site.register(UserTienda)
-admin.site.register(UserComprador)
+admin.site.register(UsersNormal)
