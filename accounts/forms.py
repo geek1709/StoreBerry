@@ -10,6 +10,19 @@ class RegistrationForm(forms.ModelForm):
 
 	def clean_password1(self):
 		cd = self.cleaned_data
-		if cd['password'] != cd['password2']:
-			raise forms.ValidationError('Tus paswword no coinciden compa')
-		return cd['password2']
+		if cd['password'] != cd['password1']:
+			raise forms.ValidationError('Tus passwword no coinciden')
+		return cd['password1']
+
+class TiendaForm(forms.ModelForm):
+	password = forms.CharField(label='Tu password: ', widget=forms.PasswordInput)
+	password1 = forms.CharField(label='Repite tu password: ', widget=forms.PasswordInput)
+	class Meta:
+		model = Post
+		fields = ['nombre_tienda','user']
+
+	def clean_password1(self):
+		cd = self.cleaned_data
+		if cd['password'] != cd['password1']:
+			raise forms.ValidationError('Tus password no coinciden')
+		return cd['password1']
