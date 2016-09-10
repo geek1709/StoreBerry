@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.views.generic import View
 from .forms import TiendaForm,RegistrationForm
 
 from .models import UserTienda

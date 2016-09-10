@@ -1,5 +1,7 @@
 from .models import UserTienda
+from django import forms
 from django.contrib.auth.models import User
+
 
 class RegistrationForm(forms.ModelForm):
 	password = forms.CharField(label='Tu password: ', widget=forms.PasswordInput)
@@ -18,7 +20,7 @@ class TiendaForm(forms.ModelForm):
 	password = forms.CharField(label='Tu password: ', widget=forms.PasswordInput)
 	password1 = forms.CharField(label='Repite tu password: ', widget=forms.PasswordInput)
 	class Meta:
-		model = Post
+		model = UserTienda
 		fields = ['nombre_tienda','user']
 
 	def clean_password1(self):
