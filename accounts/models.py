@@ -7,11 +7,3 @@ class UserTienda(models.Model):
 
 	def __str__(self):
 		return 'esta tienda le pertenece a {}'.format(self.user)
-
-class UsersNormal(models.Model):
-	user = models.OneToOneField(User)
-	nombre = models.CharField(max_length=140)
-	email = models.CharField(max_length=140)
-
-	def __str__(self):
-		return 'este perfil le pertenece a {}'.format(self.user)

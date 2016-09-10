@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import UsersNormal,UserTienda
+from .models import UserTienda
 
 admin.site.register(UserTienda)
-admin.site.register(UsersNormal)
