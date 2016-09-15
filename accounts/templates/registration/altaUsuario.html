@@ -1,10 +1,15 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<form action="." method="post">
-	{%csrf_token%}
-	{{form.as_p}}
-	<input type="submit" value="Darme de Alta">
-</form>
+
+{%if request.user.is_authenticated%}
+
+{%else%}
+	<form action="." method="post">
+		{%csrf_token%}
+		{{form.as_p}}
+		<input type="submit" value="Darme de Alta">
+	</form>
+{%endif%}
 
 {%endblock content%}
