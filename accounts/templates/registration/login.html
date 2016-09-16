@@ -6,14 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="{%static "css/styles.css"%}">
 	<title>StoreBerry</title>
 </head>
-<body>
+<body class="log">
 	{%if form.errors%}
 		<p>Tu usuario y contrasea no coinciden</p>
 	{%else%}
-		<form action="{%url 'login'%}" method="post" class="log">
+		<form action="{%url 'login'%}" method="post">
 			{%csrf_token%}
 			{{form.as_p}}
-			<input type="hidden" name="next" value="{{next}}"/>
 			<input type="submit" value="Iniciar Sesión">
 		</form>
 		<h4>Si aun no tienes una cuenta, creala <a href="{%url 'altausuario'%}">aquí</a></h4>

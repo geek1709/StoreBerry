@@ -1,6 +1,24 @@
+{% extends 'base.html' %}
 
-<form action="." method="post">
-	{%csrf_token%}
-	{{form.as_p}}
-	<input type="submit" value="Darme de Alta">
-</form>
+{%block content%}
+
+<h1>Bienvenido es hora de de Decidir!.</h1>
+
+{%if request.user.is_authenticated%}
+
+	<h3>Hola, {{request.user.first_name}}</h3>
+	<h4>Tu correo electronico es: {{request.user.email}}</h4>
+
+	<form action="." method="post">
+		{%csrf_token%}
+		{{form.as_p}}
+		<input type="submit" value="Darme de Alta">
+	</form>
+
+
+{%else%}
+<h2>Porque no inicias sesion?</h2>
+{%endif%}
+
+
+{%endblock content%}

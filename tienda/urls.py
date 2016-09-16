@@ -4,5 +4,5 @@ from django.contrib.auth import views as djangoViews
 
 
 urlpatterns = [
-	url(r'^index/$', views.Alta.as_view(), name="menu"),
+	url(r'^index/$', views.Index.as_view(), name="index"),
 ]

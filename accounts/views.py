@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-
 from .forms import TiendaForm,RegistrationForm
 
 
@@ -24,10 +21,19 @@ class Alta(View):
 			new_user = form.save(commit=False)
 			new_user.set_password(form.cleaned_data['password'])
 			new_user.save()
-			return redirect('altaTienda')
+			return redirect('index')
 		else:
 			context = {
 			'form':form,
 			}
-			template_name = 'accounts/altaUsuario.html'
+			template_name = 'registration/altaUsuario.html'
 			return render(request,template_name,context)
+
+class AltaTienda(View):
+	def get(self,request):
+		template_name = 'registration/altaTienda.html'
+		form = TiendaForm
+		context = {
+		'form':form,
+		}
+		return render(request,template_name,context)
