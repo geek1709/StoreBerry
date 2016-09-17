@@ -22,3 +22,9 @@ class Perfil(View):
 		template_name = 'accounts/perfil.html'
 		context = {}
 		return render(request, template_name, context)
+
+class Home(View):
+	def get(self):
+		template_name = 'accounts/inicio.html'
+		context = {}
+		return render(template_name, context)
