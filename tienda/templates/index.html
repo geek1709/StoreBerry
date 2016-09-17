@@ -1,5 +1,18 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 
 {%block content%}
-<h1>Holi!</h1>
+	
+		{%for product in products%}
+		<a href="" >
+			<h3>{{product.nombre_producto}}</h3>
+		</a>
+		<p>{{product.precio}}</p>
+		{%if product.imagen%}
+		<img src="{{product.imagen.url}}">
+		{%endif%}
+		{%empty%}
+		<h1>No hay productos</h1>
+		{%endfor%}
+
+
 {%endblock content%}
