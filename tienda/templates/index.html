@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {%block content%}
-	
+	<div class="col-lg-6">
+    	<div class="input-group">
+      		<input type="text" class="form-control">
+      		<span class="input-group-btn">
+        	<button class="btn btn-default" type="button">Buscar</button>
+      </span>
+    </div>
+  </div>
+</div>
+<br>
 		{%for product in products%}
 		<a href="" >
 			<h3>{{product.nombre_producto}}</h3>
 		</a>
-		<p>{{product.precio}}</p>
+		<p>${{product.precio}}</p>
 		{%if product.imagen%}
 		<img src="{{product.imagen.url}}">
 		{%endif%}
