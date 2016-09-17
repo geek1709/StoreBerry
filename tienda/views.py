@@ -6,6 +6,8 @@ from .models import Product
 from .forms import ProductForm
 
 
+
+
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
@@ -20,8 +22,14 @@ class ProductLoad(View):
 	@method_decorator(login_required)
 	def get(self,request):
 		template_name = 'loadProduct.html'
-		form = ProductForm
+		form = ProductForm()
 		context = {
 			'form':form
 		}
 		return render(request,template_name,context)
+	def post(self,request):
+		form = ProductForm(request.POST,request.FILES)
+		new_product = form.save(commit=False)
+		new_product.user = request.user
+		new_product.save()
+		return redirect('lista')
